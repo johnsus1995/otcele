@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   icons: {
     icon: '/favicon/favicon.ico',
-    shortcut: '/favicon/favicon-16x16.png',
+    shortcut: '/favicon/apple-touch-icon.png',
     apple: '/favicon/apple-touch-icon.png',
   },
   manifest: `/favicon/site.webmanifest`,
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.title,
     images: [
       {
-        url: 'https://fastly.picsum.photos/id/8/5000/3333.jpg?hmac=OeG5ufhPYQBd6Rx1TAldAuF92lhCzAhKQKttGfawWuA',
+        url: '/favicon/android-chrome-512x512.png',
         width: 1200,
         height: 630,
         alt: 'electo-image',
