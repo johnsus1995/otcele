@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 'use client';
 
 import { Step, Stepper, Typography } from '@material-tailwind/react';
@@ -47,6 +48,7 @@ const StepperProgressBar = (props: StepperProgressBarProps) => {
         onPointerLeaveCapture={() => null}
       >
         {steps.map((step: string) => (
+          //  @ts-ignore
           <Step
             key={step}
             placeholder=''
