@@ -71,7 +71,7 @@ const MapSideBarAnalytics = (props: any) => {
                 onChange={setFromDate}
                 maxDate={toDate}
                 dateFormat='MMMM dd YYYY'
-                portalId='root-portal'
+                // portalId='root-portal'
               />
             </div>
             <div className='flex flex-col gap-2'>
