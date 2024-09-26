@@ -1,0 +1,196 @@
+name: Deploy to server
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  ssh_to_server:
+    runs-on: ubuntu-latest
+    steps:
+      # - name: Checkout code
+      #   uses: actions/checkout@v2
+       
+      
+      - name: SSH to server and execute pwd
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: 100.24.194.130
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          username: electo-qa
+          port: 22
+          command_timeout: 30m
+          # script: |
+          #   pwd; cd public_html/web; git remote -v; git checkout dev; git pull origin dev; npm install --legacy-peer-deps; export PATH=$PATH:/home/electo-qa/.nvm/versions/node/v21.7.1/bin; pm2 restart start
+          script: |
+            cd public_html/web; git checkout dev
+            git pull origin dev
+            export PATH=$PATH:/home/electo-qa/.nvm/versions/node/v21.7.1/bin; npm install --legacy-peer-deps
+            pm2 restart start
+
+
+
+# name: Next.js Build and Deploy
+
+# on:
+#   push:
+#     branches:
+#       - dev
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v2
+
+#       - name: Setup Node.js
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: '18'
+
+#       - name: Install dependencies
+#         run: npm install
+
+#       - name: Build Next.js app
+#         run: npm run build; ls -a; pwd; cd .next; ls -a
+
+#       - name: Debug SSH Key
+#         run: echo "${{ secrets.SSH_PRIVATE_KEY }}"
+
+#       - name: Copy files to remote host
+#         uses: appleboy/scp-action@master
+#         with:
+#           host: ${{ secrets.REMOTE_HOST }}
+#           username: ${{ secrets.REMOTE_USERNAME }}
+#           key: ${{ secrets.SSH_PRIVATE_KEY }}
+#           port: ${{ secrets.SSH_PORT }}
+#           source: ".next/**/*"  # Replace with the path to your local files
+#           target: "/home/electo-qa/public_html/web/"  # Replace with the path on the remote host
+
+      # - name: Use SSH key (securely store using GitHub Secrets)
+      #   uses: actions/checkout@v2
+      #   with:
+      #     repository: 'Electo-Website'  # Replace with the repository containing your SSH key
+      #     path: ${{ github.workspace }}/ssh  # Place the key in a subfolder
+
+      # - name: Add SSH key to agent (consider using a deployer tool for better security)
+      #   run: |
+      #     chmod 600 ${{ github.workspace }}/ssh/id_rsa  # Set appropriate permissions for the key
+      #     eval "$(ssh-agent -s)"
+      #     ssh-add ${{ github.workspace }}/ssh/id_rsa
+      #   # env:
+      #   #   SSH_AUTH_SOCK: ${{ runner.env.SSH_AUTH_SOCK }}  # Optional, if already set
+
+      # - name: Copy .next folder contents (using SSH action with optional rsync)
+      #   uses: nlopes/ssh-action@v3
+      #   with:
+      #     host: ${{ secrets.REMOTE_HOST }}
+      #     username: ${{ secrets.REMOTE_USERNAME }}
+      #     port: ${{ secrets.SSH_PORT }}
+      #     command: |
+      #       # This assumes rsync is installed on the remote server
+      #       rsync -avz ${{ github.workspace }}/.next/* ${{ secrets.REMOTE_USERNAME }}@${{ secrets.REMOTE_HOST }}:/home/electo-qa/public_html/web/  # Adjust flags and paths as needed
+
+
+
+
+          
+      # - name: Copy files to remote host
+      #   run: |
+      #     rsync -avz -e "ssh -p ${{ secrets.SSH_PORT }} -i ${{ secrets.SSH_PRIVATE_KEY }}" .next/* ${{ secrets.REMOTE_USERNAME }}@${{ secrets.REMOTE_HOST }}:/home/electo-qa/public_html/web/
+
+
+# name: Next.js Build and Deploy
+
+# on:
+#   push:
+#     branches:
+#       - dev
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v2
+
+#       - name: Setup Node.js
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: '18'
+
+#       - name: Install dependencies
+#         run: npm install
+
+#       - name: Build Next.js app
+#         run: npm run build
+
+#       - name: Deploy to remote host (replace with your deployment steps)
+#         uses: fifsky/ssh-action@master  # Or any suitable deployment action
+#         with:
+#           host: 100.24.194.130 # Replace with your SSH host
+#           username: electo-qa  # Replace with SSH username
+#           key: ${{ secrets.SSH_PRIVATE_KEY }}
+#           remote_path: /home/electo-qa/public_html/web  # Replace with remote directory
+#           local_path: .next  # Upload the build output directory
+#           server_port: 22  # Replace with SSH port if needed
+      # - name: Copy Files to Remote Host
+      #   uses: Pendect/action-rsyncer@v1.1.0
+      #   env:
+      #     DEPLOY_KEY: ${{ secrets.PRIVATE_KEY }}
+      #   with:
+      #     flags: '-avzr'
+      #     options: ''
+      #     ssh_options: ''
+      #     src: ''
+      #     dest: 'electo-qa@100.24.194.130:/home/electo-qa/public_html/web'
+      # - name: Deploy on Remote Host
+      #   uses: fifsky/ssh-action@master
+      #   with:
+      #     command: |
+      #       cp -r next/* . 
+      #     host: 100.24.194.130
+      #     user: electo-qa
+      #     key: ${{ secrets.PRIVATE_KEY }}
+      # - name: Deploy to hosting service
+      #   uses: appleboy/ssh-action@v0.1.10
+      #   with:
+      #     key: ${{ secrets.SSH_PRIVATE_KEY }}
+      #     port: 22
+      #     host: 100.24.194.130
+      #     username: electo-qa
+      #     source: ".next/"
+      #     target: "/home/electo-qa/public_html/web"
+
+  #     - name: Uploading qa-ready build files
+  #       uses: actions/upload-artifact@v2
+  #       with:
+  #         name: qa-files
+  #         path: .next/
+
+  # deploy:
+  #   name: Deploy
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   if: github.ref == 'refs/heads/dev'
+
+  #   steps:
+  #     - name: Downloading artifact
+  #       uses: actions/download-artifact@v2
+  #       with:
+  #         name: qa-files
+  #         path: ./next
+
+  #     - name: Deploy to hosting service
+  #       uses: appleboy/ssh-action@v0.1.10
+  #       with:
+  #         key: ${{ secrets.SSH_PRIVATE_KEY }}
+  #         port: 22
+  #         host: 100.24.194.130
+  #         username: electo-qa
+  #         script: |
+  #           ls -a; scp .next/* electo-qa@100.24.194.130:/home/electo-qa/public_html/web
