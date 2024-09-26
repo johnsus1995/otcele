@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 'use client';
 
 import {
@@ -40,11 +41,13 @@ const AccordionSingle = (props: AccordionSingleProps) => {
   const handleOpen = (value: number) => setOpen(open === value ? 0 : value);
   return (
     <div>
+      {/* @ts-ignore */}
       <Accordion
         placeholder=''
         open={open === 1}
         icon={<Icon id={1} open={open} />}
       >
+        {/* @ts-ignore */}
         <AccordionHeader
           placeholder=''
           className='text-sm font-normal text-black dark:text-muted-foreground font-poppins dark:border-gray-800'
@@ -52,6 +55,7 @@ const AccordionSingle = (props: AccordionSingleProps) => {
         >
           {header}
         </AccordionHeader>
+        {/* @ts-ignore */}
         <AccordionBody className='font-poppins'>
           {children ? children : body}
         </AccordionBody>
