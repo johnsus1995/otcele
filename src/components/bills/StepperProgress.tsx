@@ -43,6 +43,8 @@ const StepperProgressBar = (props: StepperProgressBarProps) => {
         activeStep={activeStep}
         lineClassName='bg-gray-300'
         activeLineClassName='bg-green-300'
+        onPointerEnterCapture={() => null}
+        onPointerLeaveCapture={() => null}
       >
         {steps.map((step: string) => (
           <Step
