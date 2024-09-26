@@ -2,6 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 100;
+  src: url('/fonts/Poppins-Thin.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 300;
+  src: url('/fonts/Poppins-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 400;
+  src: url('/fonts/Poppins-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 500;
+  src: url('/fonts/Poppins-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 600;
+  src: url('/fonts/Poppins-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 700;
+  src: url('/fonts/Poppins-Bold.ttf') format('truetype');
+}
+
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -410,7 +450,7 @@ body[data-scroll-locked='1'] {
 }
 
 .feature-percentage-value {
-  font-family: sans-serif;
+  font-family: 'Poppins';
   pointer-events: none; /* Ensure text doesn't interfere with click events */
   fill: #ececec;
   font-weight: bold;
@@ -418,7 +458,7 @@ body[data-scroll-locked='1'] {
 }
 
 .district-label {
-  font-family: sans-serif;
+  font-family: 'Poppins';
   pointer-events: none;
   fill: #ececec;
   font-weight: bold;
@@ -427,7 +467,7 @@ body[data-scroll-locked='1'] {
 
 /* body {
   margin: 0;
-  font-family: sans-serif;
+  font-family: "Poppins";
 } */
 
 #app {

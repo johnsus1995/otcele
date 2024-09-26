@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
-import { Poppins, Syncopate } from 'next/font/google';
-// import Head from 'next/head';
+// import { Poppins } from 'next/font/google';
 import * as React from 'react';
 
 import '@/styles/globals.css';
@@ -71,19 +70,12 @@ export const metadata: Metadata = {
   ],
 };
 
-const PoppinsFont = Poppins({
-  subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  display: 'swap',
-  variable: '--font-poppins',
-});
-
-const SyncopateFont = Syncopate({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  display: 'swap',
-  variable: '--font-syncopate',
-});
+// const PoppinsFont = Poppins({
+//   subsets: ['latin'],
+//   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+//   display: 'swap',
+//   variable: '--font-poppins',
+// });
 
 export default function RootLayout({
   children,
@@ -93,23 +85,10 @@ export default function RootLayout({
   return (
     <html
       lang='en'
-      className={`${PoppinsFont.variable} ${SyncopateFont.variable}`}
+      // className={`${PoppinsFont.variable}`}
       suppressHydrationWarning
     >
-      {/* <Head>
-        <meta
-          property='og:image'
-          content='https://server.electoai.com/og-image.png'
-        />
-        <meta property='og:image:width' content='500' />
-        <meta property='og:image:height' content='500' />
-        <meta property='og:title' content='your website page title' />
-        <meta property='og:url' content='ps://server.electoai.com' />
-        <meta property='og:site_name' content='site name and content etc' />
-        <meta property='og:description' content='description of site' />
-        <meta property='og:type' content='Website' />
-      </Head> */}
-      <body>
+      <body className='font-poppins'>
         <NextThemeProvider>
           <ReactQueryProvider>
             <RecoilContextProvider>

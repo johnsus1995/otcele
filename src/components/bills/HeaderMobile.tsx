@@ -272,9 +272,6 @@ const HeaderMobile = () => {
             </AvatarFallback>
           </Avatar>
         </Link>
-        {/* <Link href='/bills' className='font-syncopate text-lg font-semibold'>
-          Electo
-        </Link> */}
         <Link href='/bills' className=''>
           <CompanyLogoNew className='w-[110px] h-[25px]' />
         </Link>

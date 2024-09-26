@@ -25,8 +25,8 @@ const config = withMT({
     },
     extend: {
       fontFamily: {
-        poppins: ['var(--font-poppins)'],
-        syncopate: ['var(--font-syncopate)'],
+        // poppins: ['var(--font-poppins)'],
+        // syncopate: ['var(--font-syncopate)'],
       },
       colors: {
         secondaryAsh: '#f7f7f8',
