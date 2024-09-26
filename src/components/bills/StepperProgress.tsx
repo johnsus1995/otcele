@@ -61,6 +61,7 @@ const StepperProgressBar = (props: StepperProgressBarProps) => {
               <Popover>
                 <PopoverTrigger className=' border-gray-200 dark:border-gray-800 py-5 z-0 w-full '>
                   <div className='absolute -top-[1.5rem] -left-[13px] w-max text-center text-xs'>
+                    {/* @ts-ignore */}
                     <Typography
                       placeholder=''
                       variant='small'
