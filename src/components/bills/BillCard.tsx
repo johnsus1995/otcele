@@ -26,7 +26,7 @@ interface BillCardProps {
 
 const BillCard = memo(function (props: BillCardProps) {
   const {
-    description,
+    description = 'U2FsdGVkX19TqW07r/oLJl/LbuftpFoUpG4UsvpbwL3eztMDEmTvVyp4wze46dMv2gBOl5UHPjMDUDpHa4jCj4fo4Lr6HY16XjV/',
     type,
     authors,
     voted,
