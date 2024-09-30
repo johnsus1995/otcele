@@ -22,6 +22,7 @@ import { userAtom } from '@/store/user.atom';
 import VotingDoneIcon from '@/../public/svg/voting-done.svg';
 import { getFederalBills, getStateBills } from '@/apis/bills';
 import { getProfile } from '@/apis/user';
+// import Head from 'next/head';
 
 ReactGA.initialize(process.env.GA_MEASUREMENT_ID as string);
 
@@ -148,6 +149,9 @@ const Bills = () => {
 
   return (
     <div className=' md:h-[calc(100vh-160px)]'>
+      {/* <Head> */}
+      {/* <link rel='preconnect' href='https://server-api.electoai.com' /> */}
+      {/* </Head> */}
       <title>Bills</title>
       <Modal
         contentClassName='md:max-w-[450px]'

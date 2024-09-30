@@ -1,6 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import Head from 'next/head';
 import { useParams, usePathname } from 'next/navigation';
 
 import { cn } from '@/lib/utils';
@@ -35,6 +36,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className='flex justify-between w-full'>
+      <Head>
+        <link rel='preconnect' href='https://server-api.electoai.com' />
+      </Head>
       <div
         className={cn(
           'md:w-[385px] md:overflow-auto w-full lg:w-[550px] md:border-r border-gray-200 dark:border-gray-800',
