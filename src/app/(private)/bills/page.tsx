@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { intlFormatDistance } from 'date-fns';
 import dynamic from 'next/dynamic';
 import { useRouter as useNpRouter } from 'next-nprogress-bar';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import ReactGA from 'react-ga4';
 import { useInView } from 'react-intersection-observer';
 import { useRecoilState } from 'recoil';
@@ -49,14 +49,16 @@ const Bills = () => {
 
   const [isOpen, setIsOpen] = useState<any>(isNewUser);
 
-  const onClickSkipTutorial = () => {
+  const billsPerType = billType === 'federal' ? bills.federal : bills.state;
+
+  const onClickSkipTutorial = useCallback(() => {
     setIsOpen(false);
     setAuthStateValue((prev: any) => ({ ...prev, isNewUser: false }));
-  };
+  }, [setAuthStateValue]);
 
-  const onClickNextTutorial = () => {
+  const onClickNextTutorial = useCallback(() => {
     router.push(`bills/${billsPerType[0]?.billId}?bill_type=${billType}`);
-  };
+  }, [router, billsPerType, billType]);
 
   useQuery({
     queryKey: ['get-profile'],
@@ -98,8 +100,6 @@ const Bills = () => {
       setLoading(false);
     }
   };
-
-  const billsPerType = billType === 'federal' ? bills.federal : bills.state;
 
   const newBills = billsPerType.map((bill: any, index: number) => {
     const isLastItem = index === bills[billType].length - 3;

@@ -1,6 +1,6 @@
 import { CheckSquareIcon, MessageSquareText, Share2 } from 'lucide-react';
 import Link from 'next/link';
-import React from 'react';
+import React, { memo } from 'react';
 import { FaThumbsDown, FaThumbsUp } from 'react-icons/fa6';
 
 import { addEllipsis } from '@/lib/helper';
@@ -24,7 +24,7 @@ interface BillCardProps {
   billType?: string | null;
 }
 
-const BillCard = (props: BillCardProps) => {
+const BillCard = memo(function (props: BillCardProps) {
   const {
     description,
     type,
@@ -63,19 +63,25 @@ const BillCard = (props: BillCardProps) => {
               height={100}
               src={AvatarPlaceholder}
               alt='author'
+              loading='lazy'
             />
           </AvatarFallback>
         </Avatar>
         {type === 'latest' && authors.length > 1 && (
           <>
             <Avatar className='absolute top-3 left-0 rounded-full border-2 border-white'>
-              <AvatarImage src={authors[1]?.imageUrl} alt='author' />
+              <AvatarImage
+                src={authors[1]?.imageUrl}
+                alt='author'
+                loading='lazy'
+              />
               <AvatarFallback>
                 <NextImage
                   width={100}
                   height={100}
                   src={AvatarPlaceholder}
                   alt='author'
+                  loading='lazy'
                 />
               </AvatarFallback>
             </Avatar>
@@ -132,6 +138,6 @@ const BillCard = (props: BillCardProps) => {
       </div>
     </div>
   );
-};
+});
 
 export default BillCard;
