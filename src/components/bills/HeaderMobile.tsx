@@ -255,11 +255,11 @@ const HeaderMobile = () => {
       </motion.ul>
       <div
         className={cn(
-          'h-12 w-full flex justify-between items-center bg-white px-4',
+          'h-12 w-full flex justify-between items-center bg-white dark:bg-black px-4',
         )}
       >
         <Link href='/profile'>
-          <Avatar className='flex items-center lg:w-10 w-8 lg:h-10 h-8 z-0'>
+          <Avatar className='flex items-center lg:w-10 w-8 lg:h-10 h-8 z-0 '>
             <AvatarImage
               src={`${process.env.BASE_URL}/${userState.image}`}
               alt='avatar'
@@ -273,7 +273,7 @@ const HeaderMobile = () => {
           </Avatar>
         </Link>
         <Link href='/bills' className=''>
-          <CompanyLogoNew className='w-[110px] h-[25px]' />
+          <CompanyLogoNew className='w-[110px] h-[25px] company-logo' />
         </Link>
 
         <MenuToggle toggle={toggleOpen} />
@@ -285,10 +285,7 @@ const HeaderMobile = () => {
 export default HeaderMobile;
 
 const MenuToggle = ({ toggle }: { toggle: any }) => (
-  <button
-    onClick={toggle}
-    className='pointer-events-auto z-30' //absolute right-4 top-[14px] z-30
-  >
+  <button onClick={toggle} className='pointer-events-auto z-30'>
     <svg width='23' height='23' viewBox='0 0 23 23'>
       <Path
         variants={{

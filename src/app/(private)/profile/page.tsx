@@ -290,7 +290,7 @@ const Profile = () => {
             <div className='flex justify-between items-center p-2 border-b border-gray-200'>
               <h4 className='font-semibold'>Edit profile</h4>
             </div>
-            <div className='p-2'>
+            <div className='p-2 mb-5'>
               <EditProfile
                 setEditMode={setEditMode}
                 refetchProfile={refetchProfile}

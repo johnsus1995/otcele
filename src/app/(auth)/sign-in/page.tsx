@@ -693,6 +693,7 @@ export default function SignIn() {
         isOpen={isOpen}
         setIsOpen={setIsOpen}
         preventOutsideClick={true}
+        contentClassName='md:!rounded-2xl'
         renderContent={
           <div className='flex flex-col justify-center items-center gap-5 p-4 font-poppins'>
             <Image

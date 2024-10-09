@@ -116,8 +116,9 @@ export default function Interests() {
             className={cn(
               'px-2 py-1 md:px-3 md:py-2 cursor-pointer border border-gray-500 rounded-2xl text-xs md:text-sm text-gray-500',
               {
-                'border-black': selectedInterests.includes(item),
-                'text-black': selectedInterests.includes(item),
+                'border-black  dark:border-white':
+                  selectedInterests.includes(item),
+                'text-black dark:text-white': selectedInterests.includes(item),
               },
             )}
           >

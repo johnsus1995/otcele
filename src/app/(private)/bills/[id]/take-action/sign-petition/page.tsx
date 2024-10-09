@@ -30,11 +30,11 @@ const customStyles = {
     zIndex: '999',
     // backgroundColor: 'white',
     padding: '0',
-    boxShadow: '10px 5px 20px gray',
+    // boxShadow: '10px 5px 20px gray',
   },
-  overlay: {
-    backgroundColor: '#656565',
-  },
+  // overlay: {
+  //   backgroundColor: '#656565',
+  // },
 };
 
 const SignPetition = (props: any) => {
@@ -194,6 +194,7 @@ const SignPetition = (props: any) => {
         contentLabel='consent-modal'
         className='relative max-w-6xl bg-white dark:bg-black border border-gray-300 dark:border-gray-700 rounded flex flex-col justify-between'
         shouldCloseOnOverlayClick={false}
+        overlayClassName='react-modal-overlay'
       >
         <div className='p-4 md: px-10 md:pt-10 font-poppins h-fit overflow-auto'>
           <header className='py-2'>

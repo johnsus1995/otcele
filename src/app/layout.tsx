@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.title,
     images: [
       {
-        url: '/favicon/android-chrome-512x512.png',
+        url: 'http://100.24.194.130:4000/public/openGraphImage.png',
         width: 1200,
         height: 630,
         alt: 'electo-image',
@@ -57,9 +57,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: siteConfig.title,
     description: siteConfig.description,
-    images: [
-      `https://fastly.picsum.photos/id/8/5000/3333.jpg?hmac=OeG5ufhPYQBd6Rx1TAldAuF92lhCzAhKQKttGfawWuA`,
-    ],
+    images: [`http://100.24.194.130:4000/public/openGraphImage.png`],
     creator: '@ileaf_solutions',
   },
   authors: [

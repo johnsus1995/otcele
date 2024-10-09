@@ -47,7 +47,7 @@ const NewLineChart = (props: Props) => {
           axisLine={false}
           tickMargin={10}
           dataKey='name'
-          tick={{ fontSize: 12 }}
+          tick={{ fontSize: 10 }}
           tickLine={false}
           padding={{ left: 0, right: 10 }}
           angle={xAxisTickAxisAngle}

@@ -64,7 +64,7 @@ const TotalVotes = (props: TotalVotesProps) => {
 
   return (
     <div>
-      <div className='h-[275px] mt-5 p-4'>
+      <div className='h-[275px] md:mt-5 p-4'>
         <NewBarChart
           data={chartData}
           bar1DataKey='Agree'
@@ -73,8 +73,8 @@ const TotalVotes = (props: TotalVotesProps) => {
           yAxisTickDomain={[0, 100]}
         />
       </div>
-      <hr className='h-px mt-9 mb-6 bg-gray-200 border-0 dark:bg-gray-700' />
-      <div className='px-4'>
+      <hr className='h-px md:mt-9 mb-6 bg-gray-200 border-0 dark:bg-gray-700' />
+      <div className='px-4 mb-5'>
         <h3 className='pb-3 font-semibold text-lg'>Percentage</h3>
         <Progress
           isZero={agreePercentage === 0 && disagreePercentage === 0}

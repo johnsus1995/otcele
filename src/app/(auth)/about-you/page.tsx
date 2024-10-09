@@ -308,7 +308,7 @@ export default function AboutYou() {
           phone: editValue,
           email: res.email ? res.email : authStateValue.email,
         }));
-        toast('Change OTP verification method', {
+        toast('Changed OTP Verification Method.', {
           description: res.message,
           duration: 3000,
           action: {
@@ -347,7 +347,7 @@ export default function AboutYou() {
     useMutation({
       mutationFn: async (payload: any) => resendOtp(payload),
       onSuccess: (res: any) => {
-        toast('Change OTP verification method', {
+        toast('Changed OTP Verification Method', {
           description: res.message,
           duration: 3000,
           action: {
@@ -823,7 +823,7 @@ export default function AboutYou() {
                   className='underline cursor-pointer'
                   onClick={sendOtpAgain}
                 >
-                  {`Resend (${verifyMode})`}
+                  Resend
                 </button>
                 {isPendingSendOtpAgain && (
                   <Loader2 className='animate-spin h-4 w-4' />

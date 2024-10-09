@@ -391,7 +391,7 @@ const FederalBillMap: React.FC<MapProps> = (props: any) => {
               'bg-black text-xs text-white w-fit h-fit p-1 px-3 rounded-sm',
             )}
           >
-            Reset
+            Reset Map
           </button>
         )}
       </div>

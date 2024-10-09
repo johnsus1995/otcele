@@ -15,7 +15,13 @@ export function middleware(request: NextRequest) {
     // '/voter-registration-status',
   ];
 
-  const tempRoutes = ['/sign-in', '/sign-up', '/sign-in-phone', '/about-you'];
+  const tempRoutes = [
+    '/sign-in',
+    '/sign-up',
+    '/sign-in-phone',
+    '/about-you',
+    '/delete-account-procedure',
+  ];
 
   if (token && authRoutes.includes(path)) {
     return NextResponse.redirect(new URL('/bills', request.url));

@@ -165,10 +165,6 @@ const Officials = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [locale, modifiedChamber]);
 
-  useEffect(() => {
-    setUserState((prev: any) => ({ ...prev, currentPageName: 'Officials' }));
-  }, [setUserState]);
-
   const newOfficials = allOfficials.map((official: any, index: number) => {
     const isLastItem = index === allOfficials.length - 1;
     const _ref = isLastItem ? ref : null;
@@ -198,6 +194,10 @@ const Officials = () => {
       title: 'Officials',
     });
   }, [locale, type]);
+
+  useEffect(() => {
+    setUserState((prev: any) => ({ ...prev, currentPageName: 'Officials' }));
+  }, [setUserState, inView]);
 
   return (
     <div>

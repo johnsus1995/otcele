@@ -64,8 +64,9 @@ const Interests = (props: any) => {
             className={cn(
               'px-2 py-2  cursor-pointer border border-gray-500 rounded-2xl text-xs md:text-sm text-gray-500',
               {
-                'border-black': selectedInterests.includes(item),
-                'text-black': selectedInterests.includes(item),
+                'border-black dark:border-white':
+                  selectedInterests.includes(item),
+                'text-black dark:text-white': selectedInterests.includes(item),
               },
             )}
           >
@@ -98,7 +99,7 @@ const Interests = (props: any) => {
           key={index}
           onClick={() => onSelect(item)}
           className={cn(
-            'px-2 border-black text-black py-1 border rounded-2xl text-xs md:text-sm',
+            'px-2 border-black dark:border-muted-foreground dark:text-muted-foreground text-black py-1 border rounded-2xl text-xs md:text-sm',
           )}
         >
           {item}

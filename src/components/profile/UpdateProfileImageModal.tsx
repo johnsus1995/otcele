@@ -7,6 +7,7 @@ import { toast } from 'sonner';
 import 'react-easy-crop/react-easy-crop.css';
 
 import { blobToFile, getCroppedImg } from '@/lib/imageCropperHelpers';
+import { cn } from '@/lib/utils';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -87,7 +88,11 @@ const UpdateProfileImageModal = (props: UpdateProfileImageModalProps) => {
             />
           </div>
 
-          <div className='crop-container font-poppins min-h-[400px] flex items-center'>
+          <div
+            className={cn('crop-container font-poppins  flex items-center', {
+              'max-h-[150px]': !rawImage,
+            })}
+          >
             {rawImage ? (
               <Cropper
                 image={rawImage as any}

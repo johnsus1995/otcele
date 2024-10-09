@@ -11,25 +11,38 @@ interface TabSwitcherProps {
 
 const TabSwitcher = (props: TabSwitcherProps) => {
   const { tabs, activeTab, setActiveTab } = props;
-  const containerRef: any = React.useRef();
-  const tabRef: any = React.useRef();
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  const tabRefs = React.useRef<(HTMLButtonElement | null)[]>([]); // Array of refs for each tab
 
   const onClickScroll = (direction: string) => {
     const scrollAmount = direction === 'right' ? 100 : -100;
 
-    containerRef.current.scrollTo({
-      left: containerRef.current.scrollLeft + scrollAmount,
+    containerRef.current?.scrollTo({
+      left: (containerRef.current.scrollLeft || 0) + scrollAmount,
       behavior: 'smooth',
     });
   };
 
-  const onClickTab = (tab: string) => {
+  const onClickTab = (tab: string, index: number) => {
     setActiveTab(tab);
-    // tabRef.current.scrollIntoView({
-    //   behavior: 'smooth',
-    //   block: 'start',
-    //   inline: 'nearest',
-    // });
+
+    const item = tabRefs.current[index];
+
+    if (item && containerRef.current) {
+      const itemRect = item.getBoundingClientRect();
+      const containerRect = containerRef.current.getBoundingClientRect();
+
+      const offset =
+        itemRect.left -
+        containerRect.left +
+        itemRect.width / 2 -
+        containerRect.width / 2;
+
+      containerRef.current.scrollBy({
+        left: offset,
+        behavior: 'smooth',
+      });
+    }
   };
 
   return (
@@ -43,11 +56,11 @@ const TabSwitcher = (props: TabSwitcherProps) => {
         ref={containerRef}
         className='flex gap-1 md:gap-4 w-full overflow-auto no-scrollbar'
       >
-        {tabs.map((tab) => (
+        {tabs.map((tab: string, index: any) => (
           <button
             key={tab}
-            ref={tabRef}
-            onClick={() => onClickTab(tab)}
+            ref={(el) => (tabRefs.current[index] = el)} // Assign ref to each tab
+            onClick={() => onClickTab(tab, index)}
             style={{
               overflowWrap: 'normal',
               wordWrap: 'normal',

@@ -48,7 +48,7 @@ const VoteRate = (props: Props) => {
   return (
     <div className=''>
       <CircularProgress progress={percentage || 0} valueClassName='text-xl' />
-      <hr className='h-px mt-9 mb-6 bg-gray-200 border-0 dark:bg-gray-700' />
+      <hr className='h-px md:mt-9 mb-6 bg-gray-200 border-0 dark:bg-gray-700' />
       <div className='px-4'>
         <h3 className='pb-3 font-semibold text-lg'>Percentage</h3>
         <Progress

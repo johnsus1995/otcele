@@ -147,7 +147,7 @@ const DataHub = ({ params, searchParams }: any) => {
                 dateFormat='MMMM dd YYYY'
               />
             </div>
-            <div className='flex flex-col gap-2'>
+            <div className='flex flex-col md:gap-2'>
               <label className='font-normal text-xs text-muted-foreground'>
                 To
               </label>
@@ -159,17 +159,19 @@ const DataHub = ({ params, searchParams }: any) => {
                 dateFormat='MMMM dd YYYY'
               />
             </div>
-            <div className='flex items-center gap-2 mt-6'>
-              <span className='block w-2 h-2 bg-green-400 rounded-full' />
-              <span className='block text-muted-foreground text-sm'>YAY</span>
-            </div>
-            <div className='flex items-center gap-2 mt-6'>
-              <span className='block w-2 h-2 bg-red-400 rounded-full' />
-              <span className='block text-muted-foreground text-sm'>NAY</span>
+            <div className='flex  gap-3 '>
+              <div className='flex items-center gap-2 md:mt-6'>
+                <span className='block w-2 h-2 bg-green-400 rounded-full' />
+                <span className='block text-muted-foreground text-sm'>YAY</span>
+              </div>
+              <div className='flex items-center gap-2 md:mt-6'>
+                <span className='block w-2 h-2 bg-red-400 rounded-full' />
+                <span className='block text-muted-foreground text-sm'>NAY</span>
+              </div>
             </div>
           </div>
         </div>
-        <div className='my-4'>{component}</div>
+        <div className='md:my-4'>{component}</div>
       </div>
     </div>
   );

@@ -147,33 +147,6 @@ html.dark .company-logo {
   }
 }
 
-/* .custom-scrollbar-style {
-  overflow-y: hidden;
-  overflow-x: hidden;
-  transition: all 0.4s ease;
-
-  &:active, &:hover {
-      overflow-y:auto;
-  }
-
-  &::-webkit-scrollbar {
-      width: 5px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-      height: 6px;
-      border-radius: 10px;
-      visibility: hidden;
-  }
-  &::-webkit-scrollbar-track {
-      visibility: hidden;
-  }
-  &:active::-webkit-scrollbar-thumb, &:hover::-webkit-scrollbar-thumb, &:focus::-webkit-scrollbar-thumb {
-      visibility: visible;
-      background: #ff5733;
-  }
-} */
-
 .react-datepicker-wrapper {
   width: 100%;
 }
@@ -355,22 +328,6 @@ html.dark .accountActiveTab span:after {
   border-color: gray;
   display: none !important;
 }
-
-/* .CircularProgressPathClass path::after {
-  content: '';
-  display: block;
-  z-index: 999;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: red;
-} */
-
-/* .CircularProgressbar-path {
-  stroke: red;
-}::after{
-
-} */
 
 .customCircularProgressbar {
   transform: scaleX(-1) scaleY(-1);
@@ -578,5 +535,15 @@ html.dark .css-1uiykuo-control {
 
 html.dark .PhoneInputInput {
   border-color: #242427;
+  background: black !important;
+}
+
+.react-modal-overlay {
+  background: white;
+  position: fixed;
+  inset: 0px;
+}
+
+html.dark .react-modal-overlay {
   background: black !important;
 }

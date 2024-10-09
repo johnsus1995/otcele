@@ -80,12 +80,12 @@ const VotingDoneModal = (props: VotingDoneModalProps) => {
 
   return (
     <Modal
-      contentClassName='md:max-w-[450px]'
+      contentClassName='md:max-w-[450px] dark:bg-gray-800 dark:border-2 dark:border-gray-500'
       isOpen={isOpen}
       preventOutsideClick
       setIsOpen={setIsOpen}
       renderContent={
-        <div className='flex flex-col   items-center gap-4 font-poppins'>
+        <div className='flex flex-col   items-center gap-4 font-poppins '>
           <VotingDoneIcon className='max-w-[120px] max-h-[120px]' />
           <h3 className='font-semibold text-base'>Congratulations</h3>
           <p className='text-muted-foreground text-center text-sm'>
