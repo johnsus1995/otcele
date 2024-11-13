@@ -21,6 +21,7 @@ export function middleware(request: NextRequest) {
     '/sign-in-phone',
     '/about-you',
     '/delete-account-procedure',
+    '/privacy-policy',
   ];
 
   if (token && authRoutes.includes(path)) {
