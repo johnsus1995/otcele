@@ -59,7 +59,7 @@ const TabSwitcher = (props: TabSwitcherProps) => {
         {tabs.map((tab: string, index: any) => (
           <button
             key={tab}
-            ref={(el) => (tabRefs.current[index] = el)} // Assign ref to each tab
+            ref={(el: any) => (tabRefs.current[index] = el)} // Assign ref to each tab
             onClick={() => onClickTab(tab, index)}
             style={{
               overflowWrap: 'normal',
